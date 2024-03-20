@@ -97,5 +97,26 @@
       crossorigin="anonymous"
     ></script>
     {{moment.include_moment() }} {{moment.lang(g.locale) }}
+    <script>
+      async function translate(sourceElem, destElem, sourceLang, destLang) {
+        let csrf_token = "{{ csrf_token() }}";
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+        headers.append("X-CSRFToken", csrf_token);
+        document.getElementById(destElem).innerHTML =
+          '<img src="{{ url_for("static", filename="loading.gif") }}">';
+        const response = await fetch("/translate", {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify({
+            text: document.getElementById(sourceElem).innerText,
+            source_language: sourceLang,
+            dest_language: destLang,
+          }),
+        });
+        const data = await response.json();
+        document.getElementById(destElem).innerText = data.text;
+      }
+    </script>
   </body>
 </html>

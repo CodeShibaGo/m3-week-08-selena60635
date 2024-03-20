@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-20 19:25+0800\n"
+"POT-Creation-Date: 2024-03-20 19:56+0800\n"
 "PO-Revision-Date: 2024-03-20 19:25+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: app/__init__.py:24
+#: app/__init__.py:25
 msgid "請登入以訪問此頁面。"
 msgstr "Please log in to access this page."
 
@@ -66,110 +66,118 @@ msgstr "Request password reset"
 msgid "密碼"
 msgstr "Password:"
 
-#: app/forms.py:45 app/routes.py:101
+#: app/forms.py:45 app/routes.py:108
 msgid "再輸入一次密碼"
 msgstr "Repeat Password:"
 
-#: app/forms.py:46 app/routes.py:230 app/templates/login.html:52
+#: app/forms.py:46 app/routes.py:238 app/templates/login.html:51
 #: app/templates/reset_password_request.html:3
 msgid "重設密碼"
 msgstr "Reset Password"
 
-#: app/routes.py:22
+#: app/routes.py:29
 msgid "你的貼文現在已發布！"
 msgstr "Your post is now live!"
 
-#: app/routes.py:31 app/templates/base.html:44
+#: app/routes.py:38 app/templates/base.html:44
 msgid "首頁"
 msgstr "Home"
 
-#: app/routes.py:50 app/routes.py:54
+#: app/routes.py:57 app/routes.py:61
 msgid "此欄位不得為空"
 msgstr "This field cannot be empty."
 
-#: app/routes.py:58
+#: app/routes.py:65
 msgid "無效的使用者名稱或密碼"
 msgstr "Invalid username or password."
 
-#: app/routes.py:65 app/templates/base.html:63 app/templates/login.html:43
+#: app/routes.py:72 app/templates/base.html:63 app/templates/login.html:43
 msgid "登入"
 msgstr "Login"
 
-#: app/routes.py:91
+#: app/routes.py:98
 msgid "此名稱已有人使用"
 msgstr "This name is already used."
 
-#: app/routes.py:93
+#: app/routes.py:100
 msgid "此信箱已有人使用"
 msgstr "This mail is already used."
 
-#: app/routes.py:95
+#: app/routes.py:102
 msgid "請填寫使用者名稱"
 msgstr "Please fill in username."
 
-#: app/routes.py:97
+#: app/routes.py:104
 msgid "請填寫郵件地址"
 msgstr "Please fill in your email address."
 
-#: app/routes.py:99
+#: app/routes.py:106
 msgid "請填寫密碼"
 msgstr "Please fill in the password."
 
-#: app/routes.py:104
+#: app/routes.py:111
 msgid "密碼錯誤"
 msgstr "wrong password"
 
-#: app/routes.py:118
+#: app/routes.py:125
 msgid "恭喜，你現在是一名註冊使用者！"
 msgstr "Congratulations, you are now a registered user!"
 
-#: app/routes.py:120 app/templates/register.html:2
+#: app/routes.py:127 app/templates/register.html:2
 #: app/templates/register.html:68
 msgid "註冊"
 msgstr "Register"
 
-#: app/routes.py:154
+#: app/routes.py:162
 msgid "你的修改已被儲存。"
 msgstr "Your changes have been saved."
 
-#: app/routes.py:159 app/templates/edit_profile.html:3
+#: app/routes.py:167 app/templates/edit_profile.html:3
 msgid "編輯個人資料"
 msgstr "Edit profile"
 
-#: app/routes.py:170 app/routes.py:190
+#: app/routes.py:178 app/routes.py:198
 #, python-format
 msgid "使用者 %(username)s 未找到。"
 msgstr "User %(username)s not found."
 
-#: app/routes.py:173
+#: app/routes.py:181
 msgid "你不能追蹤自己！"
 msgstr "You can't follow yourself!"
 
-#: app/routes.py:177
+#: app/routes.py:185
 #, python-format
 msgid "你正在追蹤 %(username)s ！"
 msgstr "You are following %(username)s!"
 
-#: app/routes.py:193
+#: app/routes.py:201
 msgid "你不能取消追蹤自己！"
 msgstr "You can't unfollow yourself!"
 
-#: app/routes.py:197
+#: app/routes.py:205
 #, python-format
 msgid "你已經取消追蹤 %(username)s ！"
 msgstr "You have unfollowed %(username)s!"
 
-#: app/routes.py:214 app/templates/base.html:52
+#: app/routes.py:222 app/templates/base.html:52
 msgid "探索"
 msgstr "Explore"
 
-#: app/routes.py:227
+#: app/routes.py:235
 msgid "請檢查你的電子郵件以獲取重設密碼的指示"
 msgstr "Please check your email for instructions on resetting your password."
 
-#: app/routes.py:243
+#: app/routes.py:251
 msgid "您的密碼已重設。"
 msgstr "Your password has been reset."
+
+#: app/translate.py:9
+msgid "錯誤：翻譯服務未配置。"
+msgstr "Error: The translation service is not configured."
+
+#: app/translate.py:19
+msgid "錯誤：翻譯服務失敗。"
+msgstr "Error: Translation service failed."
 
 #: app/templates/404.html:2
 msgid "檔案未找到"
@@ -191,6 +199,10 @@ msgstr "Administrator has been notified. Sorry for the inconvenience!"
 #, python-format
 msgid "%(username)s 說 %(when)s"
 msgstr "%(username)s says %(when)s"
+
+#: app/templates/_post.html:27
+msgid "翻譯"
+msgstr "Translate"
 
 #: app/templates/base.html:8 app/templates/base.html:24
 msgid "微型部落格"
