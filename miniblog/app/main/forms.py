@@ -1,13 +1,11 @@
 from flask_wtf import FlaskForm
 from flask_babel import _
 from flask_babel import lazy_gettext as _l
-from wtforms import StringField, PasswordField, SubmitField, TextAreaField
-from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
+from wtforms import StringField, SubmitField, TextAreaField
+from wtforms.validators import ValidationError, DataRequired, Length
 import sqlalchemy as sa
 from app import db
 from app.models import User
-
-
 
 class EmptyForm(FlaskForm):
     submit = SubmitField(_('提交'))
@@ -35,12 +33,3 @@ class PostForm(FlaskForm):
         DataRequired(), Length(min=1, max=140)])
     submit = SubmitField(_l('提交'))
 
-class ResetPasswordRequestForm(FlaskForm):
-    email = StringField(_l('信箱'),  validators=[DataRequired(), Email()])
-    submit = SubmitField(_l('請求重設密碼'))
-
-class ResetPasswordForm(FlaskForm):
-    password = PasswordField(_l('密碼'), validators=[DataRequired()])
-    password2 = PasswordField(
-        _l('再輸入一次密碼'),  validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField(_l('重設密碼'))

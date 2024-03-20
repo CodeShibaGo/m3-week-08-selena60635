@@ -1,8 +1,10 @@
-from app import app
 import os
+from flask import Blueprint
 import click
 
-@app.cli.group()
+bp = Blueprint('cli', __name__, cli_group=None)
+
+@bp.cli.group()
 def translate():
     """翻譯和本地化命令。"""
     pass

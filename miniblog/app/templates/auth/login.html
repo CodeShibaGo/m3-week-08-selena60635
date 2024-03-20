@@ -44,10 +44,12 @@
 </form>
 <p>
   {{ _('新使用者？') }}
-  <a href="{{ url_for('register') }}"> {{ _('點擊註冊！') }}</a>
+  <a href="{{ url_for('auth.register') }}"> {{ _('點擊註冊！') }}</a>
 </p>
 <p>
   {{ _('忘記你的密碼了嗎？') }}
-  <a href="{{ url_for('reset_password_request') }}"> {{ _('重設密碼') }} </a>
+  <a href="{{ url_for('auth.reset_password_request') }}">
+    {{ _('重設密碼') }}
+  </a>
 </p>
 {% endblock %}
