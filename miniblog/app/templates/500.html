@@ -1,9 +1,6 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<h1>{{ _('發生意外的錯誤') }}</h1>
+<p>{{ _('已通知管理員。帶來不便敬請諒解！') }}</p>
 
-{% block content %}
-    <h1>An unexpected error has occurred</h1>
-    <p>The administrator has been notified. Sorry for the inconvenience!</p>
-   
-
- <p><a href="{{ url_for('index') }}">Back</a></p>
+<p><a href="{{ url_for('index') }}">{{ _('返回') }}</a></p>
 {% endblock %}

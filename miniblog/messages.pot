@@ -1,0 +1,299 @@
+# Translations template for PROJECT.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2024-03-20 19:25+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.14.0\n"
+
+#: app/__init__.py:24
+msgid "請登入以訪問此頁面。"
+msgstr ""
+
+#: app/email.py:19
+msgid "[Microblog] 重設您的密碼"
+msgstr ""
+
+#: app/forms.py:13 app/forms.py:20 app/forms.py:36
+msgid "提交"
+msgstr ""
+
+#: app/forms.py:14 app/templates/user.html:23
+msgid "追蹤"
+msgstr ""
+
+#: app/forms.py:15 app/templates/user.html:33
+msgid "取消追蹤"
+msgstr ""
+
+#: app/forms.py:18
+msgid "使用者名稱"
+msgstr ""
+
+#: app/forms.py:19
+msgid "關於我"
+msgstr ""
+
+#: app/forms.py:31
+msgid "請使用不同的使用者名稱。"
+msgstr ""
+
+#: app/forms.py:34
+msgid "說點什麼"
+msgstr ""
+
+#: app/forms.py:39
+msgid "信箱"
+msgstr ""
+
+#: app/forms.py:40
+msgid "請求重設密碼"
+msgstr ""
+
+#: app/forms.py:43
+msgid "密碼"
+msgstr ""
+
+#: app/forms.py:45 app/routes.py:101
+msgid "再輸入一次密碼"
+msgstr ""
+
+#: app/forms.py:46 app/routes.py:230 app/templates/login.html:52
+#: app/templates/reset_password_request.html:3
+msgid "重設密碼"
+msgstr ""
+
+#: app/routes.py:22
+msgid "你的貼文現在已發布！"
+msgstr ""
+
+#: app/routes.py:31 app/templates/base.html:44
+msgid "首頁"
+msgstr ""
+
+#: app/routes.py:50 app/routes.py:54
+msgid "此欄位不得為空"
+msgstr ""
+
+#: app/routes.py:58
+msgid "無效的使用者名稱或密碼"
+msgstr ""
+
+#: app/routes.py:65 app/templates/base.html:63 app/templates/login.html:43
+msgid "登入"
+msgstr ""
+
+#: app/routes.py:91
+msgid "此名稱已有人使用"
+msgstr ""
+
+#: app/routes.py:93
+msgid "此信箱已有人使用"
+msgstr ""
+
+#: app/routes.py:95
+msgid "請填寫使用者名稱"
+msgstr ""
+
+#: app/routes.py:97
+msgid "請填寫郵件地址"
+msgstr ""
+
+#: app/routes.py:99
+msgid "請填寫密碼"
+msgstr ""
+
+#: app/routes.py:104
+msgid "密碼錯誤"
+msgstr ""
+
+#: app/routes.py:118
+msgid "恭喜，你現在是一名註冊使用者！"
+msgstr ""
+
+#: app/routes.py:120 app/templates/register.html:2
+#: app/templates/register.html:68
+msgid "註冊"
+msgstr ""
+
+#: app/routes.py:154
+msgid "你的修改已被儲存。"
+msgstr ""
+
+#: app/routes.py:159 app/templates/edit_profile.html:3
+msgid "編輯個人資料"
+msgstr ""
+
+#: app/routes.py:170 app/routes.py:190
+#, python-format
+msgid "使用者 %(username)s 未找到。"
+msgstr ""
+
+#: app/routes.py:173
+msgid "你不能追蹤自己！"
+msgstr ""
+
+#: app/routes.py:177
+#, python-format
+msgid "你正在追蹤 %(username)s ！"
+msgstr ""
+
+#: app/routes.py:193
+msgid "你不能取消追蹤自己！"
+msgstr ""
+
+#: app/routes.py:197
+#, python-format
+msgid "你已經取消追蹤 %(username)s ！"
+msgstr ""
+
+#: app/routes.py:214 app/templates/base.html:52
+msgid "探索"
+msgstr ""
+
+#: app/routes.py:227
+msgid "請檢查你的電子郵件以獲取重設密碼的指示"
+msgstr ""
+
+#: app/routes.py:243
+msgid "您的密碼已重設。"
+msgstr ""
+
+#: app/templates/404.html:2
+msgid "檔案未找到"
+msgstr ""
+
+#: app/templates/404.html:3 app/templates/500.html:5
+msgid "返回"
+msgstr ""
+
+#: app/templates/500.html:2
+msgid "發生意外的錯誤"
+msgstr ""
+
+#: app/templates/500.html:3
+msgid "已通知管理員。帶來不便敬請諒解！"
+msgstr ""
+
+#: app/templates/_post.html:13
+#, python-format
+msgid "%(username)s 說 %(when)s"
+msgstr ""
+
+#: app/templates/base.html:8 app/templates/base.html:24
+msgid "微型部落格"
+msgstr ""
+
+#: app/templates/base.html:11
+msgid "歡迎來到微型部落格"
+msgstr ""
+
+#: app/templates/base.html:72
+msgid "個人資料"
+msgstr ""
+
+#: app/templates/base.html:80
+msgid "登出"
+msgstr ""
+
+#: app/templates/index.html:5
+#, python-format
+msgid "嗨，%(username)s！"
+msgstr ""
+
+#: app/templates/index.html:14 app/templates/user.html:48
+msgid "較新的帖子"
+msgstr ""
+
+#: app/templates/index.html:19 app/templates/user.html:53
+msgid "較舊的帖子"
+msgstr ""
+
+#: app/templates/login.html:6 app/templates/register.html:7
+msgid "使用者名稱："
+msgstr ""
+
+#: app/templates/login.html:20 app/templates/register.html:37
+msgid "密碼："
+msgstr ""
+
+#: app/templates/login.html:40
+msgid "記住我"
+msgstr ""
+
+#: app/templates/login.html:46
+msgid "新使用者？"
+msgstr ""
+
+#: app/templates/login.html:47
+msgid "點擊註冊！"
+msgstr ""
+
+#: app/templates/login.html:50
+msgid "忘記你的密碼了嗎？"
+msgstr ""
+
+#: app/templates/register.html:22
+msgid "信箱："
+msgstr ""
+
+#: app/templates/register.html:53
+msgid "再輸入一次密碼："
+msgstr ""
+
+#: app/templates/reset_password.html:3
+msgid "重置你的密碼"
+msgstr ""
+
+#: app/templates/user.html:10
+msgid "最後上線時間"
+msgstr ""
+
+#: app/templates/user.html:14
+msgid "編輯你的個人資料"
+msgstr ""
+
+#: app/templates/email/reset_password.html:4
+#, python-format
+msgid "親愛的 %(username)s，"
+msgstr ""
+
+#: app/templates/email/reset_password.html:6
+msgid "要重設您的密碼，"
+msgstr ""
+
+#: app/templates/email/reset_password.html:8
+msgid "點擊這裡"
+msgstr ""
+
+#: app/templates/email/reset_password.html:9
+msgid "。"
+msgstr ""
+
+#: app/templates/email/reset_password.html:11
+msgid "或者，您可以將以下連結貼到您瀏覽器的地址欄："
+msgstr ""
+
+#: app/templates/email/reset_password.html:13
+msgid "如果您沒有要求重設密碼，請忽略此訊息。"
+msgstr ""
+
+#: app/templates/email/reset_password.html:14
+msgid "誠摯地，"
+msgstr ""
+
+#: app/templates/email/reset_password.html:15
+msgid "Microblog 團隊"
+msgstr ""
+

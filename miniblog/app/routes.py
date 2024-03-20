@@ -1,5 +1,6 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, g
 from flask_login import current_user, login_user, logout_user, login_required
+from flask_babel import _, get_locale
 from datetime import datetime, timezone
 from urllib.parse import urlsplit
 import sqlalchemy as sa
@@ -18,7 +19,7 @@ def index():
         post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
-        flash('你的貼文現在已發布！')
+        flash(_('你的貼文現在已發布！'))
         return redirect(url_for('index'))
     page = request.args.get('page', 1, type=int)
     posts = db.paginate(current_user.following_posts(), page=page,
@@ -27,7 +28,7 @@ def index():
         if posts.has_next else None
     prev_url = url_for('index', page=posts.prev_num) \
         if posts.has_prev else None
-    return render_template('index.html', title='Home', form=form,
+    return render_template('index.html', title=_('首頁'), form=form,
                            posts=posts.items, next_url=next_url,
                            prev_url=prev_url)
 
@@ -46,22 +47,22 @@ def login():
         if username:
             username_error = None
         else:
-            username_error = "此欄位不得為空"
+            username_error = _('此欄位不得為空')
         if password:
             password_error = None
         else:
-            password_error = "此欄位不得為空"
+            password_error = _('此欄位不得為空')
         # 抓出使用者資料，查看是否有這筆資料、驗證密碼
         user = db.session.scalar(db.select(User).from_statement(db.text(f"SELECT * FROM user WHERE  username='{username}'")))
         if user is None or not user.check_password(password):
-            flash('無效的使用者名稱或密碼')
+            flash(_('無效的使用者名稱或密碼'))
         else:
             login_user(user, remember = remember)
             next_page = request.args.get('next')
             if not next_page or urlsplit(next_page).netloc != '':
                 next_page = url_for('index')
             return redirect(next_page)
-    return render_template('login.html', title='登入', username_error=username_error, password_error=password_error)
+    return render_template('login.html', title=_('登入'), username_error=username_error, password_error=password_error)
 
 @app.route('/logout')
 def logout():
@@ -87,23 +88,22 @@ def register():
         check_email = db.session.scalar(db.select(User).from_statement(db.text(f"SELECT * FROM user WHERE email = '{email}'"))) 
         # 表單驗證
         if check_name:
-            username_error = "此名稱已有人使用。"
+            username_error = _('此名稱已有人使用')
         if check_email:
-            email_error = "此信箱已有人使用。"
+            email_error = _('此信箱已有人使用')
         if not username:
-            username_error = "請填寫使用者名稱"
+            username_error = _('請填寫使用者名稱')
         if not email:
-            email_error = "請填寫郵件地址"
+            email_error = _('請填寫郵件地址')
         if not password:
-            password_error = "請填寫密碼"
+            password_error = _('請填寫密碼')
         if not password2:
-            password2_error = "再輸入一次密碼"
+            password2_error = _('再輸入一次密碼')
         # 驗證第二次密碼
         if password and password2 and password != password2:
-            password2_error = "密碼錯誤"
+            password2_error = _('密碼錯誤')
             # 驗證通過，新增一筆使用者資料
         elif not (username_error or email_error or password_error or password2_error):
-            print("註冊成功")
             new_user = User(username=username, email=email, password_hash=db_password)
             insert_query = db.text("INSERT INTO user (username, email, password_hash, about_me, last_seen) VALUES (:username, :email, :password_hash, :about_me, :last_seen)")
             params = {
@@ -115,9 +115,9 @@ def register():
                 }
             db.session.execute(insert_query, params)
             db.session.commit()
-            flash('恭喜，你現在是一名註冊使用者！')
+            flash(_('恭喜，你現在是一名註冊使用者！'))
             return redirect(url_for('login'))
-    return render_template('register.html', title='Register', username_error=username_error, email_error=email_error, password_error=password_error, password2_error=password2_error)
+    return render_template('register.html', title=_('註冊'), username_error=username_error, email_error=email_error, password_error=password_error, password2_error=password2_error)
 
 
 @app.route('/user/<username>')
@@ -142,7 +142,8 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.now(timezone.utc)
         db.session.commit()
-
+        g.locale = str(get_locale())
+        
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
@@ -151,12 +152,12 @@ def edit_profile():
         current_user.username = form.username.data
         current_user.about_me = form.about_me.data
         db.session.commit()
-        flash('Your changes have been saved.')
+        flash(_('你的修改已被儲存。'))
         return redirect(url_for('edit_profile'))
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me
-    return render_template('edit_profile.html', title='Edit Profile',
+    return render_template('edit_profile.html', title=_('編輯個人資料'),
                            form=form)
 
 @app.route('/follow/<username>', methods=['POST'])
@@ -167,14 +168,14 @@ def follow(username):
         user = db.session.scalar(
             sa.select(User).where(User.username == username))
         if user is None:
-            flash(f'User {username} not found.')
+            flash(_('使用者 %(username)s 未找到。', username=username))
             return redirect(url_for('index'))
         if user == current_user:
-            flash('You cannot follow yourself!')
+            flash(_('你不能追蹤自己！'))
             return redirect(url_for('user', username=username))
         current_user.follow(user)
         db.session.commit()
-        flash(f'You are following {username}!')
+        flash(_('你正在追蹤 %(username)s ！', username=username))
         return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('index'))
@@ -187,14 +188,14 @@ def unfollow(username):
         user = db.session.scalar(
             sa.select(User).where(User.username == username))
         if user is None:
-            flash(f'User {username} not found.')
+            flash(_('使用者 %(username)s 未找到。', username=username))
             return redirect(url_for('index'))
         if user == current_user:
-            flash('You cannot unfollow yourself!')
+            flash(_('你不能取消追蹤自己！'))
             return redirect(url_for('user', username=username))
         current_user.unfollow(user)
         db.session.commit()
-        flash(f'You are not following {username}.')
+        flash(_('你已經取消追蹤 %(username)s ！', username=username))
         return redirect(url_for('user', username=username))
     else:
         return redirect(url_for('index'))
@@ -211,7 +212,7 @@ def explore():
     # 前幾頁的資料數量 < post總數，代表後面還有post，下一頁開啟
     next_url = url_for('explore', page=page + 1) if (page * per_page) < posts_count else None
     prev_url = url_for('explore', page=page - 1) if page > 1 else None
-    return render_template("index.html", title='Explore', posts=posts,
+    return render_template("index.html", title=_('探索'), posts=posts,
                            next_url=next_url, prev_url=prev_url)
 
 @app.route('/reset_password_request', methods=['GET', 'POST'])
@@ -224,10 +225,10 @@ def reset_password_request():
             sa.select(User).where(User.email == form.email.data))
         if user:
             send_password_reset_email(user)
-        flash('請檢查你的電子郵件以獲取重設密碼的指示')
+        flash(_('請檢查你的電子郵件以獲取重設密碼的指示'))
         return redirect(url_for('login'))
     return render_template('reset_password_request.html',
-                           title='重設密碼', form=form)
+                           title=_('重設密碼'), form=form)
 
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
 def reset_password(token):
@@ -240,6 +241,6 @@ def reset_password(token):
     if form.validate_on_submit():
         user.set_password(form.password.data)
         db.session.commit()
-        flash('Your password has been reset.')
+        flash(_('您的密碼已重設。'))
         return redirect(url_for('login'))
     return render_template('reset_password.html', form=form)

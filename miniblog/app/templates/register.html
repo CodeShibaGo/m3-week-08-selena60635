@@ -1,10 +1,10 @@
 {% extends "base.html" %} {% block content %}
-<h1>Register</h1>
+<h1>{{ _('註冊') }}</h1>
 <form method="post">
   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
 
   <div class="mb-3">
-    <label class="form-label" for="username">Username:</label>
+    <label class="form-label" for="username">{{ _('使用者名稱：') }}</label>
     <input
       class="form-control {% if username_error %} is-invalid {% endif %}"
       id="username"
@@ -19,7 +19,7 @@
     </span>
   </div>
   <div class="mb-3">
-    <label class="form-label" for="email">Email:</label>
+    <label class="form-label" for="email">{{ _('信箱：') }}</label>
     <input
       class="form-control {% if username_error %} is-invalid {% endif %}"
       id="email"
@@ -34,7 +34,7 @@
     </span>
   </div>
   <div class="mb-3">
-    <label class="form-label" for="password">Password:</label>
+    <label class="form-label" for="password">{{ _('密碼：') }}</label>
     <input
       class="form-control {% if username_error %} is-invalid {% endif %}"
       id="password"
@@ -49,7 +49,9 @@
   </div>
 
   <div class="mb-3">
-    <label class="form-label" for="re_password">Repeat Password:</label>
+    <label class="form-label" for="re_password"
+      >{{ _('再輸入一次密碼：') }}</label
+    >
     <input
       class="form-control {% if username_error %} is-invalid {% endif %}"
       id="re_password"
@@ -63,6 +65,6 @@
     </span>
   </div>
 
-  <input class="btn btn-primary" type="submit" value="Register" />
+  <input class="btn btn-primary" type="submit" value="{{ _('註冊') }}" />
 </form>
 {% endblock %}

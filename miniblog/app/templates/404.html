@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <h1>File Not Found</h1>
-    <p><a href="{{ url_for('index') }}">Back</a></p>
+{% extends "base.html" %} {% block content %}
+<h1>{{ _('檔案未找到') }}</h1>
+<p><a href="{{ url_for('index') }}">{{ _('返回') }}</a></p>
 {% endblock %}
