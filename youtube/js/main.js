@@ -76,7 +76,7 @@ function prevPage() {
 }
 
 // 監聽表單提交事件，進行搜尋
-searchForm.addEventListener("submit", function (e) {
+searchForm.addEventListener("submit", (e) => {
   // 取消提交預設行為
   e.preventDefault();
   query = searchInput.value;
@@ -85,11 +85,11 @@ searchForm.addEventListener("submit", function (e) {
 });
 
 // search-bar聚焦動態效果
-searchInput.addEventListener("focus", function () {
+searchInput.addEventListener("focus", () => {
   searchBar.classList.add("focused");
 });
 
-searchInput.addEventListener("blur", function () {
+searchInput.addEventListener("blur", () => {
   if (searchInput.value === "") {
     searchBar.classList.remove("focused");
   }
