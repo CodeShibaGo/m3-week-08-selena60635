@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube Search</title>
+    <link rel="shortcut icon" href="./img/youtube.svg" />
+    <link rel="stylesheet" href="./css/all.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Search <span class="text-red">Videos</span></h1>
+        <p>Search all Youtube videos</p>
+      </header>
+      <section class="search">
+        <form action="" name="search" class="search-form">
+          <div class="search-bar">
+            <input
+              type="search"
+              class="search-input"
+              id="search-input"
+              placeholder="Search Youtube..."
+            />
+            <input
+              type="submit"
+              class="search-btn"
+              name="search-btn"
+              value=""
+            />
+          </div>
+        </form>
+        <ul class="results"></ul>
+        <div id="buttons"></div>
+      </section>
+      <footer>
+        <p>Copyright © 2021, All Right Reserved</p>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
