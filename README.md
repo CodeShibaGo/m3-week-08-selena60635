@@ -5,8 +5,8 @@
 
 |  #  |    Project     | Demo |
 | :-: | :------------: | :---: |
-| 01  | Youtube API 串接 | Demo |
-| 02  | 匯率轉換 API 串接 | Demo |
+| 01  | Youtube API 串接 | [Demo](https://selena60635.github.io/m3-week-08-selena60635/youtube/) |
+| 02  | 匯率轉換 API 串接 | [Demo](https://selena60635.github.io/m3-week-08-selena60635/exchange/) |
 
 ## MiniBlog 實作清單
 

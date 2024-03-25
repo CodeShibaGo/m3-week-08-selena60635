@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block content %}
+<h1>{{ _('註冊') }}</h1>
+<form method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+
+  <div class="mb-3">
+    <label class="form-label" for="username">{{ _('使用者名稱：') }}</label>
+    <input
+      class="form-control {% if username_error %} is-invalid {% endif %}"
+      id="username"
+      type="text"
+      name="username"
+    />
+
+    <span
+      class="invalid-feedback {% if username_error %} visible {% else %} invisible {% endif %}"
+    >
+      {{ username_error }}
+    </span>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="email">{{ _('信箱：') }}</label>
+    <input
+      class="form-control {% if username_error %} is-invalid {% endif %}"
+      id="email"
+      type="email"
+      name="email"
+    />
+
+    <span
+      class="invalid-feedback {% if email_error %} visible {% else %} invisible {% endif %}"
+    >
+      {{ email_error }}
+    </span>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="password">{{ _('密碼：') }}</label>
+    <input
+      class="form-control {% if username_error %} is-invalid {% endif %}"
+      id="password"
+      type="password"
+      name="password"
+    />
+    <span
+      class="invalid-feedback {% if password_error %} visible {% else %} invisible {% endif %}"
+    >
+      {{ password_error }}
+    </span>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label" for="re_password"
+      >{{ _('再輸入一次密碼：') }}</label
+    >
+    <input
+      class="form-control {% if username_error %} is-invalid {% endif %}"
+      id="re_password"
+      type="password"
+      name="re_password"
+    />
+    <span
+      class="invalid-feedback {% if password2_error %} visible {% else %} invisible {% endif %}"
+    >
+      {{ password2_error }}
+    </span>
+  </div>
+
+  <input class="btn btn-primary" type="submit" value="{{ _('註冊') }}" />
+</form>
+{% endblock %}

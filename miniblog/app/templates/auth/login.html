@@ -1,0 +1,55 @@
+{% extends "base.html" %} {% block content %}
+<form class="" action="" method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+
+  <div class="mb-3">
+    <label class="form-label" for="username">{{ _('使用者名稱：') }}</label>
+    <input
+      class="form-control {% if username_error %} is-invalid {% endif %}"
+      id="username"
+      type="text"
+      name="username"
+    />
+    <span
+      class="invalid-feedback {% if username_error %} visible {% else %} invisible {% endif %}"
+    >
+      {{ username_error }}
+    </span>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="password">{{ _('密碼：') }}</label>
+    <input
+      class="form-control {% if username_error %} is-invalid {% endif %}"
+      id="password"
+      type="password"
+      name="password"
+    />
+    <span
+      class="invalid-feedback {% if password_error %} visible {% else %} invisible {% endif %}"
+    >
+      {{ password_error }}
+    </span>
+  </div>
+  <div class="form-check mb-3">
+    <input
+      class="form-check-input"
+      id="remember_me"
+      type="checkbox"
+      name="remember_me"
+    />
+    <label class="form-check-label" for="remember_me">{{ _('記住我') }}</label>
+  </div>
+
+  <input class="btn btn-primary mb-3" type="submit" value="{{ _('登入') }}" />
+</form>
+<p>
+  {{ _('新使用者？') }}
+  <a href="{{ url_for('auth.register') }}"> {{ _('點擊註冊！') }}</a>
+</p>
+<p>
+  {{ _('忘記你的密碼了嗎？') }}
+  <a href="{{ url_for('auth.reset_password_request') }}">
+    {{ _('重設密碼') }}
+  </a>
+</p>
+{% endblock %}

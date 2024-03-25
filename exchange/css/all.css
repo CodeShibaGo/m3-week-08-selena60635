@@ -1,0 +1,229 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #5fbaa7;
+  --secondary-color: #f4f4f4f4;
+}
+
+body {
+  background: var(--secondary-color);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 450px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 150px;
+}
+.title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1.2rem 0;
+  text-align: center;
+}
+.info {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.currency {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+.currency select {
+  font-size: 1.2rem;
+  border: 1px solid var(--primary-color);
+  border-right: none;
+  padding: 10px 30px 10px 10px;
+}
+.currency input {
+  font-size: 1.5rem;
+  text-align: right;
+  border: 1px solid var(--primary-color);
+  flex-grow: 1;
+}
+.swap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.swap-btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: var(--primary-color);
+  padding: 0.5rem;
+}
+.swap-btn:hover {
+  animation: shake 0.2s ease;
+}
+.rate {
+  color: var(--primary-color);
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(5px) rotate(5deg);
+  }
+  75% {
+    transform: translateX(-5px) rotate(5deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
