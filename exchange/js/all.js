@@ -6,6 +6,7 @@ const amountTo = document.querySelector("#amount-to");
 const rate = document.querySelector("#rate");
 const swap = document.querySelector("#swap-btn");
 
+// 初始化貨幣選項
 async function initRateOpt(rate = "TWD") {
   await fetch(`https://api.exchangerate-api.com/v4/latest/${rate}`)
     .then((res) => res.json())
@@ -25,8 +26,6 @@ async function initRateOpt(rate = "TWD") {
     });
   calculate();
 }
-// 初始化貨幣選項
-initRateOpt();
 
 // 貨幣轉換計算
 async function calculate() {
@@ -58,3 +57,5 @@ swap.addEventListener("click", () => {
   ];
   calculate();
 });
+
+initRateOpt();
